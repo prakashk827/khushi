@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="540" viewBox="0 0 1920 540">
+  <defs>
+    <clipPath id="clip-Web_1920_4">
+      <rect width="1920" height="540"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_4" data-name="Web 1920 – 4" clip-path="url(#clip-Web_1920_4)">
+    <rect width="1920" height="540" fill="#fff"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(40.268 108.258)">
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="62.037" height="245.202" transform="translate(305.168 44.556)" fill="#333"/>
+      <path id="Path_5" data-name="Path 5" d="M0,0,347.588.877l-60.525,61.4-224.808.877Z" transform="translate(123.338 42.77) rotate(45)" fill="#38be29"/>
+      <path id="Path_7" data-name="Path 7" d="M62.254,0H284.468l62.255,62.185H0Z" transform="translate(78.678 245.17) rotate(-45)" fill="#38be29"/>
+      <path id="Path_6" data-name="Path 6" d="M173.288,173.288H0V0Z" transform="translate(122.533 288.323) rotate(-135)" fill="#118a11"/>
+    </g>
+    <text id="Khushi_Infotech" data-name="Khushi Infotech" transform="translate(473.735 339.918)" fill="#333" font-size="182" font-family="Montserrat-Medium, Montserrat" font-weight="500" letter-spacing="-0.05em"><tspan x="0" y="0">Khushi Infotech</tspan></text>
+  </g>
+</svg>

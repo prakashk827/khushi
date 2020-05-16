@@ -80,7 +80,9 @@
                                     <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i> 
                                         <?php address();?>
                                     </li>
-                                    <li><i class="fa fa-phone" aria-hidden="true"></i><?php mobile();?></li>
+                                    <a  href="tel:<?php mobile();?>"> <li><i class="fa fa-phone" aria-hidden="true"></i> 
+                                            <?php mobile();?>
+                                    </li></a>
                                     <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <?php email();?></li>
                                     <!--<li><i class="fa fa-fax" aria-hidden="true"></i> Fax: (123) 118 9999</li>-->
 									<div class="footer-social-media">
@@ -103,7 +105,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="copy-right-text">
-                            <p>Copyright © 2018 Khushi-Infotech | All Rights Reserved.</p>
+                            <p>Copyright © 2018 <?php companyName(); ?> | All Rights Reserved.</p>
                         </div>
                     </div>
                      <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

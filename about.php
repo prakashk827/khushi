@@ -1,4 +1,4 @@
-<?php include 'headerInside.php'; ?>
+<?php include_once('public/header.php'); ?>
 <script>
         $(document).ready(function() {
             $("#about").addClass("active");

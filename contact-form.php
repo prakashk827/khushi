@@ -3,11 +3,11 @@ if($_POST)
 {
     require('constant.php');
     $message = '';
-    $name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
-    $email     = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-    $subject   = filter_var($_POST["subject"], FILTER_SANITIZE_EMAIL);
-    $phone     = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
-    $content   = filter_var($_POST["content"], FILTER_SANITIZE_STRING);
+    echo $name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+   echo $email     = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+   echo  $subject   = filter_var($_POST["subject"], FILTER_SANITIZE_EMAIL);
+   echo  $phone     = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
+   echo  $content   = filter_var($_POST["content"], FILTER_SANITIZE_STRING);
     
 	//reCAPTCHA validation
 	/*if (isset($_POST['g-recaptcha-response'])) 
@@ -52,22 +52,33 @@ if($_POST)
 			</table>';
  
 		require 'class/class.phpmailer.php';
+
+		require 'class/PHPMailerAutoload.php';
 		$mail = new PHPMailer;
+
 		$mail->IsSMTP();        //Sets Mailer to send message using SMTP
-		$mail->Host = 'smtp.zoho.com';  //Sets the SMTP hosts of your Email hosting, this for Godaddy
+		$mail->Host = 'smtp.gmail.com'; //smtp.zoho.com  //Sets the SMTP hosts of your Email hosting, this for Godaddy
 		$mail->Port = 587;        //Sets the default SMTP server port
-		$mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables		
-		$mail->Username = 'info@khushinfotech.com';     //Sets SMTP username
-		$mail->Password = 'khushi@777';     //Sets SMTP password
-		$mail->SMTPSecure = 'tls';       //Sets connection prefix. Options are "", "ssl" or "tls"
+		$mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
+		
+		$mail->SMTPAutoTLS = false;
+		$mail->SMTPSecure = false;
+
+		//$mail->SMTPSecure = 'tls';	//Extra Line	
+		
+		$mail->Username = 'prakashk827@gmail.com'; //info@khushinfotech.com     //Sets SMTP username
+		$mail->Password = 'c7f718@All'; //khushi@777    //Sets SMTP password
+		//$mail->SMTPSecure = 'tls';       //Sets connection prefix. Options are "", "ssl" or "tls"
 		$mail->From = $_POST["email"];     //Sets the From email address for the message
 		$mail->FromName = $_POST["name"];    //Sets the From name of the message
-		$mail->addAddress('onkar.connect@gmail.com', 'Onkar naik');  //Adds a "To" address
+		$mail->addAddress('pallavik827@gmail.com.com');  // (onkar.connect@gmail.com, 'Onkar naik')  //Adds a "To" address
+		$mail->addReplyTo("prakashk827@gmail.com");
 		$mail->WordWrap = 50;       //Sets word wrapping on the body of the message to a given number of characters
 		$mail->IsHTML(true);       //Sets message type to HTML
 		//$mail->AddAttachment($path);     //Adds an attachment from a path on the filesystem
 		$mail->Subject = $subject;    //Sets the Subject of the message
-		$mail->Body = $message;       //An HTML or plain text message body
+		$mail->Body = $content;       //An HTML or plain text message body
+
 		if($mail->Send())        //Send an Email. Return true on success or false on error
 		{
 			$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$name .', thank you for the comments. We will get back to you shortly.'));
