@@ -51,7 +51,7 @@ if($_POST)
 			
 			</table>';
  
-		require 'class/class.phpmailer.php';
+		//require 'class/class.phpmailer.php';
 
 		require 'class/PHPMailerAutoload.php';
 		$mail = new PHPMailer;
@@ -69,7 +69,7 @@ if($_POST)
 		$mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
 		
 		$mail->SMTPAutoTLS = false;
-		$mail->SMTPSecure = false;
+		$mail->SMTPSecure = tls;
 
 		//$mail->SMTPSecure = 'tls';	//Extra Line	
 		
