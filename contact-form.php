@@ -69,7 +69,7 @@ if($_POST)
 		$mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
 		
 		$mail->SMTPAutoTLS = false;
-		$mail->SMTPSecure = tls;
+		$mail->SMTPSecure = 'tls';
 
 		//$mail->SMTPSecure = 'tls';	//Extra Line	
 		
