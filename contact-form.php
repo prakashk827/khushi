@@ -56,7 +56,14 @@ if($_POST)
 		require 'class/PHPMailerAutoload.php';
 		$mail = new PHPMailer;
 
-		$mail->IsSMTP();        //Sets Mailer to send message using SMTP
+		//$mail->IsSMTP();        //Sets Mailer to send message using SMTP
+		$mail->SMTPOptions = [
+			'ssl' => [
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+				'allow_self_signed' => true
+			]
+		];
 		$mail->Host = 'smtp.gmail.com'; //smtp.zoho.com  //Sets the SMTP hosts of your Email hosting, this for Godaddy
 		$mail->Port = 587;        //Sets the default SMTP server port
 		$mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
