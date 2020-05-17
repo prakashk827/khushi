@@ -1,14 +1,23 @@
+
 <?php
+
 if($_POST)
 {
-    require('constant.php');
-    $message = '';
-    echo $name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
-   echo $email     = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-   echo  $subject   = filter_var($_POST["subject"], FILTER_SANITIZE_EMAIL);
-   echo  $phone     = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
-   echo  $content   = filter_var($_POST["content"], FILTER_SANITIZE_STRING);
+ 
+ 	
+
+    //require('constant.php');
+    	$message = '';
+     	$name      = filter_var($_POST["name"], FILTER_SANITIZE_STRING);
+      	$email     = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+      	$subject   = filter_var($_POST["subject"], FILTER_SANITIZE_EMAIL);
+      	$phone     = filter_var($_POST["phone"], FILTER_SANITIZE_STRING);
+      	$content   = filter_var($_POST["content"], FILTER_SANITIZE_STRING);
     
+    ob_start();
+ 	include 'bt.phtml';
+ 	$html = ob_get_clean();
+
 	//reCAPTCHA validation
 	/*if (isset($_POST['g-recaptcha-response'])) 
 	{
@@ -25,77 +34,107 @@ if($_POST)
 				die($output);				
 		  }	
 	}*/
-	$message = '
-			<h3 align="center">Contact Form</h3>
-			<table border="1" width="100%" cellpadding="5" cellspacing="5">
-			<tr>
-				<td width="30%">Name</td>
-				<td width="70%">'.$_POST["name"].'</td>
-			</tr>
-			<tr>
-				<td width="30%">Email</td>
-				<td width="70%">'.$_POST["email"].'</td>
-			</tr>
-			<tr>
-				<td width="30%">Subject</td>
-				<td width="70%">'.$_POST["subject"].'</td>
-			</tr>
-			<tr>
-				<td width="30%">Phone Number</td>
-				<td width="70%">'.$_POST["phone"].'</td>
-			</tr>				
-			<tr>
-				<td width="30%">Message</td>
-				<td width="70%">'.$_POST["content"].'</td>
-			</tr>
-			
-			</table>';
+
+
+
+
+require 'phpMailer/PHPMailerAutoload.php';
+
+$mail = new PHPMailer;
+//$mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;                                    // TCP port to connect to
+$mail->Username = 'prakashk827@gmail.com';                 // SMTP username
+$mail->Password = 'c7f718@All'; 
+
+$mail->SMTPOptions = array(
+'ssl' => array(
+'verify_peer' => false,
+'verify_peer_name' => false,
+'allow_self_signed' => true
+)
+);                          // SMTP password
+
+
+$mail->setFrom($email, $subject); // Contact form email id
+$mail->addAddress('prakashk827@gmail.com');     // Add a recipient
+//$mail->addAttachment('img/about/1.jpg'); 
+$mail->AddEmbeddedImage("img/mail/mail.png", "envelope");
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = 'New Response From Khushi Infotech Website';
+$mail->Body    = '<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Response</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style type="text/css">
+  
+  
+  
+</style>
+<body style="overflow-y: scroll;background: #009bff; 
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);height:350px;font-family: Helvetica, Arial, sans-serif;">
+
+    <br><br><br><br><br><br>
+
+<div class="container-fluid">
  
-		//require 'class/class.phpmailer.php';
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="col-sm-12" style="position:relative;width:80%;padding:3%;margin-left:10%;border-radius:10px;background-color:white;">
+        <div class="col-sm-4">
+            <center>
+            <img style="width:150px;" alt="PHPMailer" src="cid:envelope">
+            </center>
+        </div>
+        <div class="col-sm-8">
+          <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8" style="margin-top:12%;">
+              <p style="font-size:15px;font-weight:bold;text-align:center;">A NEW OPPORTUNITY WITH US</p>
 
-		require 'class/PHPMailerAutoload.php';
-		$mail = new PHPMailer;
+              <p style="width:90%;margin-left:5%;background-color:#e6e6e6;padding:5px;border-radius:10px;font-weight:bold;">Name:'. $name.'</p>
+              <p style="width:90%;margin-left:5%;background-color:#e6e6e6;padding:5px;border-radius:10px;font-weight:bold;">Subject:'. $subject.'</p>
+              <p style="width:90%;margin-left:5%;background-color:#e6e6e6;padding:5px;border-radius:10px;font-weight:bold;">Message:'. $content.'</p>
+              <a style="color:black" href="tel:'.$phone.'">
+              <p style="width:90%;margin-left:5%;background-color:#e6e6e6;padding:5px;border-radius:10px;font-weight:bold;">Mobile No.:'. $phone.'</p>
+              </a>
+              <p style="width:90%;margin-left:5%;background-color:#e6e6e6;padding:5px;border-radius:10px;font-weight:bold;">Email ID :'. $email.'</p>
+          </div> 
+            <div class="col-sm-2"></div>
+          </div>
+         
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
 
-		//$mail->IsSMTP();        //Sets Mailer to send message using SMTP
-		$mail->SMTPOptions = [
-			'ssl' => [
-				'verify_peer' => false,
-				'verify_peer_name' => false,
-				'allow_self_signed' => true
-			]
-		];
-		$mail->Host = 'smtp.gmail.com'; //smtp.zoho.com  //Sets the SMTP hosts of your Email hosting, this for Godaddy
-		$mail->Port = 587;        //Sets the default SMTP server port
-		$mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
-		
-		$mail->SMTPAutoTLS = false;
-		$mail->SMTPSecure = 'tls';
+</body>
+</html>';
+//$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-		//$mail->SMTPSecure = 'tls';	//Extra Line	
-		
-		$mail->Username = 'prakashk827@gmail.com'; //info@khushinfotech.com     //Sets SMTP username
-		$mail->Password = 'c7f718@All'; //khushi@777    //Sets SMTP password
-		//$mail->SMTPSecure = 'tls';       //Sets connection prefix. Options are "", "ssl" or "tls"
-		$mail->From = $_POST["email"];     //Sets the From email address for the message
-		$mail->FromName = $_POST["name"];    //Sets the From name of the message
-		$mail->addAddress('pallavik827@gmail.com.com');  // (onkar.connect@gmail.com, 'Onkar naik')  //Adds a "To" address
-		$mail->addReplyTo("prakashk827@gmail.com");
-		$mail->WordWrap = 50;       //Sets word wrapping on the body of the message to a given number of characters
-		$mail->IsHTML(true);       //Sets message type to HTML
-		//$mail->AddAttachment($path);     //Adds an attachment from a path on the filesystem
-		$mail->Subject = $subject;    //Sets the Subject of the message
-		$mail->Body = $content;       //An HTML or plain text message body
-
-		if($mail->Send())        //Send an Email. Return true on success or false on error
-		{
-			$output = json_encode(array('type'=>'message', 'text' => 'Hi '.$name .', thank you for the comments. We will get back to you shortly.'));
-	    die($output);
-			
-		}
-		else
-		{
-			$output = json_encode(array('type'=>'error', 'text' => 'Unable to send email, please contact'));
-	    die($output);
-		}
+if(!$mail->send()) {
+    echo 'Message could not be sent.<br>';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
+	
 }
 ?>
