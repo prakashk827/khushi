@@ -58,7 +58,7 @@
     margin-right:10px;
     z-index:10;
 }
-.phonelink1{
+.whatsaApplink{
     position: fixed; /* Lock location always on the scree */
     bottom:58px; /* Set to the bottom */
     right: 0; /* Set to the right */
@@ -91,7 +91,7 @@
      <a class="mbscreenphone phonelink" href="tel:<?php mobile();?>">
           
            <img class="phoneicon" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png">
-            <a  class="mbscreenphone phonelink1" href="https://wa.me/<?php mobile();?>/?text=">
+            <a  class="mbscreenphone whatsaApplink" href="https://wa.me/<?php mobile();?>/?text=">
                            <img class="phoneicon" src="whatsapp.png">
           
           
