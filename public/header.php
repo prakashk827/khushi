@@ -49,10 +49,21 @@
     
 
 .phonelink{
+   
+
     position: fixed; /* Lock location always on the scree */
-    bottom: 10%; /* Set to the bottom */
-    right: 5%; /* Set to the right */
-    margin-bottom:52px; /* Add space around background */
+    bottom: 73px; /* Set to the bottom */
+    right: 0; /* Set to the right */
+    margin-bottom:35px; /* Add space around background */
+    margin-right:10px;
+    z-index:10;
+}
+.phonelink1{
+    position: fixed; /* Lock location always on the scree */
+    bottom:58px; /* Set to the bottom */
+    right: 0; /* Set to the right */
+    margin-right:10px;
+    margin-bottom:102px; /* Add space around background */
     z-index:10;
 }
 .phoneicon{
@@ -80,6 +91,8 @@
      <a class="mbscreenphone phonelink" href="tel:<?php mobile();?>">
           
            <img class="phoneicon" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png">
+            <a  class="mbscreenphone phonelink1" href="https://wa.me/<?php mobile();?>/?text=">
+                           <img class="phoneicon" src="whatsapp.png">
           
           
       </a>

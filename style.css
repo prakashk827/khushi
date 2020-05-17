@@ -1556,7 +1556,7 @@ div#sticker {
 
 #scrollUp {
     display: block;
-    bottom: 6px;
+    bottom: 60px;
     border: 1px solid #47c500;
     right: 12px;
     cursor: pointer;

@@ -14,49 +14,8 @@ require('constant.php');
 	height:500px;
 }
 	</style>
-	<script src="component/jquery/jquery-3.2.1.min.js"></script>
-	<!-- <script>
-	$(document).ready(function (e){
-		$("#contact-form").on('submit',(function(e){
-			e.preventDefault();
-			$("#mail-status").hide();
-			$('#send-message').hide();
-			
-			$.ajax({
-				url: "contact-form.php",
-				type: "POST",
-				dataType:'json',
-				data: {
-				"name":$('input[name="name"]').val(),
-				"email":$('input[name="email"]').val(),
-				"subject":$('input[name="subject"]').val(),
-				"phone":$('input[name="phone"]').val(),
-				"content":$('textarea[name="content"]').val(),
-				"g-recaptcha-response":$('textarea[id="g-recaptcha-response"]').val()},				
-				success: function(response){
-				$("#mail-status").show();
-				
-				if(response.type == "error") {
-					$('#send-message').show();
-					$("#mail-status").attr("class","error");				
-				} else if(response.type == "message"){
-					 $('#name').val("");					
-					$('#email').val("");
-					$('#phone').val("");
-					$('#subject').val("");
-					$('#content').val("");	
-                    $('#send-message').show();
-					$('#send-message').hide();
-					$("#mail-status").attr("class","success");							
-				}
-				$("#mail-status").html(response.text);	
-				},
-				error: function(){} 
-			});
-		}));
-	});
-	</script> -->
- <!--   <script src='https://www.google.com/recaptcha/api.js'></script>	 -->
+	
+   <script src='https://www.google.com/recaptcha/api.js'></script>	
     <div class="header-banner-area">
         <div class="container">
             <div class="row">
@@ -169,12 +128,11 @@ require('constant.php');
 	
         <div class="google-map-area">
             
-              <div id="googleMap">&nbsp;</div> 
+              <!-- <div id="googleMap">&nbsp;</div> -->
+              <iframe width="100%" height="350" id="gmap_canvas" src="https://maps.google.com/maps?q=13.0344493%2C%2077.57601769999997&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe> 
         </div>
 
         
-        
-        <div class="clearfix"></div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script >
@@ -248,7 +206,7 @@ require('constant.php');
                {
 
                      $(':input[type="submit"]').prop('disabled', false);
-                    //    $('#contactForm')[0].reset();
+                     $('#contactForm')[0].reset();
                      $("#warning").html(data);
                      
 

@@ -11,7 +11,7 @@ function address()
 }
 function mobile()
 {
-	echo "+91 - 9845032710";	
+	echo "+91 9845032710";	
 }
 
 function email()
