@@ -59,7 +59,8 @@ include_once("public/head.php");
                       <th><?php name();?></th>
                       <th><?php mobile();?></th>
                       <th><?php email();?></th>
-                      <th><?php location();?></th>
+                      <th><?php subject();?></th>
+                      <th><?php message();?></th>
                       <th><input class="checkBoxAll"  type="checkbox" name=""></th>
                       
                     </tr>

@@ -23,14 +23,14 @@ function mobile()
 	echo 'Mobile';
 }
 
-function  looking()
+function  subject()
 {
-	echo 'Looking for';
+	echo 'Subject';
 }
 
-function  location()
+function  message()
 {
-	echo 'Location';
+	echo 'Message';
 }
 
 function  address()
