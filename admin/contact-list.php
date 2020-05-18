@@ -8,7 +8,7 @@ include_once("public/head.php");
 <title><?php contactListTitle();?></title>
 <body class="app sidebar-mini">
   <!-- Navbar-->
-  <header class="app-header"><a class="app-header__logo" href="index.php">EP's</a>
+  <header class="app-header"><a class="app-header__logo" href="#"><?php shortTitle()?></a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -61,6 +61,7 @@ include_once("public/head.php");
                       <th><?php email();?></th>
                       <th><?php subject();?></th>
                       <th><?php message();?></th>
+                      <th>Email Sent</th>
                       <th><input class="checkBoxAll"  type="checkbox" name=""></th>
                       
                     </tr>
@@ -92,6 +93,7 @@ include_once("public/head.php");
                       <td><?php echo $data['email'];?></td> 
                       <td><?php echo $data['subject'];?></td>
                       <td><?php echo $data['message'];?></td>
+                      <td><?php echo $data['emailSent'];?></td>
                       <td>
                         <input type="checkbox" class="checkBox"   name="chk[]" value="<?php echo  $data['id']; ?>"/>
                       </td>

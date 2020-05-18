@@ -8,7 +8,7 @@ include_once("public/head.php");
 <title><?php contactListTitle();?></title>
 <body class="app sidebar-mini">
   <!-- Navbar-->
-  <header class="app-header"><a class="app-header__logo" href="index.php">EP's</a>
+  <header class="app-header"><a class="app-header__logo" href="#"><?php shortTitle()?></a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -56,11 +56,11 @@ include_once("public/head.php");
                       <th><?php dateLabel();?></th>
                       <th><?php timeLabel();?></th>
                       <th><?php name();?></th>
-                      <!-- <th><?php email();?></th> -->
                       <th><?php mobile();?></th>
-                      <th><?php looking();?></th>
-                      <th><?php location();?></th>
-                      <!-- <th>Action</th> -->
+                      <th><?php email();?></th>
+                      <th><?php subject();?></th>
+                      <th><?php message();?></th>
+                      <th>Email Sent</th>
                       <th><input class="checkBoxAll"  type="checkbox" name=""></th> 
                       
                     </tr>
@@ -84,12 +84,14 @@ include_once("public/head.php");
                       <td><?php echo $data['date'];?></td>
                       <td><?php echo $data['time'];?></td>
                       <td><?php echo $data['name'];?></td>
+                      
                       <a href="tel:<?php echo $data['mobile']?>">
                         <td><?php echo $data['mobile'];?></td>
                       </a>
-                      <td><?php echo $data['looking'];?></td>
-                      <td><?php echo $data['location'];?></td>
-                      <!-- <td><button   value="<?php //echo  $data['id']; ?>" class="btn btn-success btn-sm lead">Add Event</button></td>-->
+                      <td><?php echo $data['email'];?></td> 
+                      <td><?php echo $data['subject'];?></td>
+                      <td><?php echo $data['message'];?></td>
+                      <td><?php echo $data['emailSent'];?></td>
                       <td> 
                         <input type="checkbox" class="checkBox"   name="chk[]" value="<?php echo  $data['id']; ?>"/>
                       </td>

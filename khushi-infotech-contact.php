@@ -1,7 +1,5 @@
 <?php
-require('constant.php');
-
-?>
+require('constant.php');?>
 <?php include 'public/headerInside.php'; ?>
 <?php include_once('public/companyInfo.php') ; ?>
 <style>
@@ -89,8 +87,10 @@ require('constant.php');
                                 </div>
                                 <div class="col-sm-8">
                                     <div class='form-response'>
+                                         
                                         <br>
                                         <p style="color:red;font-weight:bold" id="warning"></p>
+                                       
                                     </div>
                                 </div>
                             </fieldset>
@@ -206,7 +206,7 @@ require('constant.php');
                {
 
                      $(':input[type="submit"]').prop('disabled', false);
-                     $('#contactForm')[0].reset();
+                    // $('#contactForm')[0].reset();
                      $("#warning").html(data);
                      
 

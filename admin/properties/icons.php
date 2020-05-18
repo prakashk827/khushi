@@ -1,9 +1,6 @@
 <?php
 
-function gallery()
-{
-	echo 'fa-picture-o';
-}
+
 function contactList()
 {
 	echo 'fa-list';
@@ -29,9 +26,19 @@ function editIcon()
 {
 	echo 'fa-pencil';
 }
-function deleteGalleryImagesIcon()
+
+function projectsAddIcon()
 {
-	echo "fa-trash";
+	echo "fa-plus";
 }
+
+function projectsViewIcon()
+{
+	echo "fa-eye";
+}
+
+
+
+
 
 ?>

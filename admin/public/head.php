@@ -4,6 +4,7 @@
     include_once("properties/icons.php");
     include_once("properties/labels.php");
     include_once("properties/titles.php");
+    include_once("properties/companyInfo.php");
     include_once("../db/db.php");
 ?>
 <!DOCTYPE html>

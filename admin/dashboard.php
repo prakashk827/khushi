@@ -17,7 +17,7 @@ $totalLeads=mysqli_num_rows($exe);
 ?>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html">EP's</a>
+    <header class="app-header"><a class="app-header__logo" href="#"><?php shortTitle()?></a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
