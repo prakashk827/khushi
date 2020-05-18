@@ -20,18 +20,18 @@ if(isset($_POST['save']))
 
 
 	include_once("../../db/db.php");
-	$category=$_POST["category"];
+	$projectLink=$_POST["projectLink"];
 	$title=$_POST["title"];
 	$alt=$_POST["alt"];
 	$shortDesc=$_POST["shortDesc"];
-	$editor1=$_POST["editor1"];
+	$editor1='';
 
 	$size=$_FILES["photo"]["size"];
 	$error=$_FILES["photo"]["error"];
 	$file_name=$_FILES["photo"]["name"];
-	$file_name=time()."_"."_".'epicPlanners_'.$file_name;
+	$file_name=time()."_"."_".'khushiinfotech_'.$file_name;
 	$temp_name=$_FILES["photo"]["tmp_name"];
-	$folder="../../images/serviceImages/".$file_name;
+	$folder="../../img/projects/".$file_name;
 	move_uploaded_file($temp_name, $folder);
 
 
@@ -40,17 +40,11 @@ if(isset($_POST['save']))
  	$time=date("h:i a");
  	$status=1;
 
- 	$query="UPDATE `category` SET `status`='1' WHERE `category`='$category'";
- 	$exe=mysqli_query($conn,$query);
-	 if(!$exe)
-	 {
-	 	echo "category status not updated <br>";
-	 	echo mysqli_error($conn);
-	 }
+ 	
 
 
 
- $query="INSERT INTO `service`(`date`, `time`, `title`,`category`,`shortDescription`, `shortPath`, `longDescription`, `longPath`, `status`)VALUES ('$date','$time','$title','$category','$shortDesc','$file_name','$editor1','$file_name','$status')";
+ $query="INSERT INTO `projects`(`date`, `time`, `title`,`projectLink`,`shortDescription`, `shortPath`, `longDescription`, `longPath`, `status`)VALUES ('$date','$time','$title','$projectLink','$shortDesc','$file_name','$editor1','$file_name','$status')";
 
  $exe=mysqli_query($conn,$query);
  if($exe)
@@ -61,7 +55,7 @@ if(isset($_POST['save']))
 
  	<center>
  		<br><br>
- 		<a title="Click Image to go Back" href="../service.php">
+ 		<a title="Click Image to go Back" href="../projects.php">
  			<img src="../../gif/success_celebration_800x600.gif">
  		</a> 
 

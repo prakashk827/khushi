@@ -70,4 +70,9 @@ function imageNameLabel()
 	echo "";
 }
 
+function projectLabel()
+{
+	echo "Project Name";
+}
+
 ?>

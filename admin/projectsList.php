@@ -5,10 +5,10 @@ include_once("public/head.php");
 
 
 ?>
-<title><?php serviceListTitle();?></title>
+<title><?php projectsTitle();?></title>
 <body class="app sidebar-mini">
   <!-- Navbar-->
-  <header class="app-header"><a class="app-header__logo" href="index.php">EP's</a>
+  <header class="app-header"><a class="app-header__logo" href="index.php">88</a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -30,7 +30,7 @@ include_once("public/head.php");
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="app-menu__icon fa <?php serviceIcon();?>"></i> <?php serviceListTitle();?></h1>
+        <h1><i class="app-menu__icon fa <?php echo "dd";?>"></i> <?php echo '55'?></h1>
 
         <p>You can edit or delete particular service</p>
       </div>
@@ -54,18 +54,15 @@ include_once("public/head.php");
                       <th><?php slNoLabel();?></th>
                       <th><?php dateLabel();?></th>
                       <th><?php timeLabel();?></th>
-                      <th><?php titleLabel();?></th>
-                      <th><?php categoryLabel();?></th>
+                      <th><?php projectLabel();?></th>
                       <th><?php editLabel();?></th>
                       <th><?php deleteLabel();?></th>
-                       
-                      
                     </tr>
                   </thead>
                   <tbody>
                     <?php 
                       
-                      $query="SELECT * FROM `service` WHERE status='1' ORDER BY `id` DESC";
+                      $query="SELECT * FROM `projects` WHERE status='1' ORDER BY `id` DESC";
                       $exe=mysqli_query($conn,$query);
                       
                       if(mysqli_num_rows($exe)>0)
@@ -82,7 +79,7 @@ include_once("public/head.php");
                       <td><?php echo $data['date'];?></td>
                       <td><?php echo $data['time'];?></td>
                       <td><?php echo $data['title'];?></td> 
-                      <td><?php echo $data['category'];?></td>
+                      
 
                       
                       <td>
@@ -148,7 +145,7 @@ include_once("public/head.php");
 
             
 
-            $.post("service/delete.php",
+            $.post("projects/delete.php",
               {id:id},
               function(data){
 
@@ -159,7 +156,7 @@ include_once("public/head.php");
                 else
                 {
                   
-                  window.location.href='serviceList.php';
+                  window.location.href='projectsList.php';
                 }
 
             });

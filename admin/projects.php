@@ -45,7 +45,7 @@
         <div class="tile">
           <div class="row">
             <div class="col-lg-6">
-              <form service/insert.php id="userForm" method="post" action="service/insert.php" enctype="multipart/form-data">
+              <form service/insert.php id="userForm" method="post" action="projects/insert.php" enctype="multipart/form-data">
                 
               
 

@@ -1,4 +1,5 @@
-<?php include 'headerInside.php'; ?>
+<?php include 'public/headerInside.php'; ?>
+<?php include_once("db/db.php");?>
 
 <style>
 	.header-banner-area {   
@@ -31,54 +32,44 @@
             <div class="row">
                 <div class="homepage-new">                    
                     <div class="rc-carousel homepage-total-news-area" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-autoplay-timeout="10000" data-smart-speed="2000" data-dots="false" data-nav="true" data-nav-speed="false" data-r-x-small="1" data-r-x-small-nav="true" data-r-x-small-dots="false" data-r-x-medium="2" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="3" data-r-small-nav="true" data-r-small-dots="false" data-r-medium="3" data-r-medium-nav="true" data-r-medium-dots="false">
+
+                        <?php 
+                      
+                      $query="SELECT * FROM `projects` WHERE status='1' ORDER BY `id` DESC";
+                      $exe=mysqli_query($conn,$query);
+                      
+                      if(mysqli_num_rows($exe)>0)
+                      {
+                        $records=0;
+                        while($data=mysqli_fetch_assoc($exe))
+                        {
+
+                           
+                    ?>
+
                         <div class="single-news-area">
                             <div class="media">
-							 <a href="http://samiteon.com" target="_blank">
+							 <a href="<?php echo $data['projectLink'];?>" target="_blank">
                                 <div class="pull-left">
-                                        <img src="img/news/6.jpg" alt="single news Image">
+                                        <img src="img/projects/<?php echo $data['shortPath'];?>" alt="khusiinfotech">
                                        <!-- <span>30 <br/>May </span>
                                         <i class="fa fa-plus"></i>-->
                                 </div>
                                 <div class="media-body">
-                                    <h3><a href="http://samiteon.com" target="_blank">Samiteon</a></h3>
-                                    <p>Samiteon is here to help you and your business. From any engineering needs you might have to product development, data security, data appliances, infrastructure services or staffing needs for your upcoming challenges and dreams, we're here to help you achieve your dreams.</p>
+                                    <h3><a href="<?php echo $data['projectLink'];?>" target="_blank">
+                                        <?php echo $data['title'];?></a></h3>
+                                    <p>
+                                         <?php echo $data['shortDescription'];?>
+                                    </p>
                                     <!--<p class="date"><a href="#">Admin</a> / <a href="#">(0) Comment</a></p>-->
                                 </div>
 							</a>
                             </div>
                         </div>
-                        <div class="single-news-area">
-                            <div class="media">
-                                <div class="pull-left">
-                                    <a href="http://www.standardbookcompany.com" target="_blank">
-                                        <img src="img/news/5.jpg" alt="single news Image">
-                                        <!--<span>30 <br/>May </span>
-                                        <i class="fa fa-plus"></i>-->
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h3><a href="http://www.standardbookcompany.com" target="_blank">The standard book company</a></h3>
-                                    <p>THE STANDARD BOOK COMPANY is serving libraries all over South and West India, backed up by extensive experience in the field for nearly 80 years. The company will celebrated its 8OTH ANNIVERSARY in 2015. Having been in the information business for nearly 80 years.</p>
-                                    <!--<p class="date"><a href="#">Admin</a> / <a href="#">(0) Comment</a></p>-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-news-area">
-                            <div class="media">
-                                <div class="pull-left">
-                                    <a href="http://www.harshayoga.com" target="_blank">
-                                        <img src="img/news/7.jpg" alt="single news Image">
-                                       <!-- <span>30 <br/>May </span>
-                                        <i class="fa fa-plus"></i>-->
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <h3><a href="http://www.harshayoga.com" target="_blank">Harsha Yoga</a></h3>
-                                    <p>Harsha has practiced the Iyengar’s teachings techniques & the traditional Ashtanga Vinyasa along with years of hatha yoga practice. With the strong knowledge base of the major scriptures, backed with the therapeutic knowledge is indeed a blessing for an aspiring teacher to learn.</p>
-                                   <!-- <p class="date"><a href="#">Admin</a> / <a href="#">(0) Comment</a></p>-->
-                                </div>
-                            </div>
-                        </div>                                             
+                        <?php
+                    }
+                }?>
+                                                                    
                     </div>
                 </div>
             </div>
@@ -109,4 +100,4 @@
 	
 	
     <!-- Footer Start Here -->
-   <?php include 'footer.php'; ?>
+   <?php include_once('public/footer.php'); ?>

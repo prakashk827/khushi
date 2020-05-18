@@ -1,5 +1,4 @@
-<?php //include 'headerInside.php'; ?>
-<?php include_once('public/header.php'); ?>
+<?php include 'public/headerInside.php'; ?>
 <script>
         $(document).ready(function() {
             $("#about").addClass("active");
@@ -260,4 +259,4 @@
     </div>-->
     <!--  Get Free Consult Section End Here -->
     <!-- Footer Start Here -->
-    <?php include 'footer.php' ?>
+     <?php include_once('public/footer.php'); ?>

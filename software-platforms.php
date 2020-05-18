@@ -1,4 +1,4 @@
-<?php include 'headerInside.php'; ?>
+<?php include 'public/headerInside.php'; ?>
 
 <style>
 	.header-banner-area {   
@@ -206,4 +206,4 @@
     </div>-->
     <!--  Get Free Consult Section End Here -->
     <!-- Footer Start Here -->
-   <?php include 'footer.php'; ?>
+    <?php include_once('public/footer.php'); ?>
