@@ -30,13 +30,13 @@ include_once("public/head.php");
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="app-menu__icon fa <?php echo "dd";?>"></i> <?php echo '55'?></h1>
+        <h1><i class="app-menu__icon fa <?php echo "dd";?>"></i> <?php echo 'Project List'?></h1>
 
-        <p>You can edit or delete particular service</p>
+        <p>You can edit or delete particular Project</p>
       </div>
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-        <li class="breadcrumb-item"><a href="#">Service List</a></li>
+        <li class="breadcrumb-item"><a href="#">Project List</a></li>
       </ul>
     </div>
 
@@ -83,7 +83,7 @@ include_once("public/head.php");
 
                       
                       <td>
-                        <a href="serviceEdit.php?id=<?php echo  $data['id']; ?>">
+                        <a href="projectEdit.php?id=<?php echo  $data['id']; ?>">
                         <button   value="<?php echo  $data['id']; ?>" class="btn btn-success btn-sm lead">Edit</button>
                         </a>
                       </td>

@@ -39,9 +39,55 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- modernizr css -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <style type="text/css">
+        
+        .phonelink{
+   
+
+    position: fixed; /* Lock location always on the scree */
+    bottom: 73px; /* Set to the bottom */
+    right: 0; /* Set to the right */
+    margin-bottom:35px; /* Add space around background */
+    margin-right:10px;
+    z-index:10;
+}
+.whatsaApplink{
+    position: fixed; /* Lock location always on the scree */
+    bottom:58px; /* Set to the bottom */
+    right: 0; /* Set to the right */
+    margin-right:10px;
+    margin-bottom:102px; /* Add space around background */
+    z-index:10;
+}
+.phoneicon{
+    width: 45px; /* Set width of icon */
+    height: 45px; /* Set height of icon */
+}
+@media screen and (max-width: 480px){
+    
+    .mbscreenphone{
+        display: block; /* On small screens make phone icon appear */
+    }
+}
+@media screen and (min-width: 481px){
+    .mbscreenphone{
+        display: none; /* On large screens make phone icon disappear */
+    }
+   
+}
+    </style>
 </head>
 
 <body class="home-2 home-4">
+
+    <a class="mbscreenphone phonelink" href="tel:<?php mobile();?>">
+          
+           <img class="phoneicon" src="https://freeiconshop.com/wp-content/uploads/edd/phone-flat.png">
+            <a  class="mbscreenphone whatsaApplink" href="https://wa.me/<?php mobile();?>/?text=">
+                           <img class="phoneicon" src="whatsapp.png">
+          
+          
+      </a>
     <!--[if lt IE 8]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->

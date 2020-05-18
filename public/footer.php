@@ -6,7 +6,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="single-footer footer-one">
                             <h3>About Us</h3>
-                            <p>If you need more information about our services or have any other queries fill the form and let us help you out. Our custom application and software development services cater a diverse range of industry verticals. </p>
+                            <p style="text-align:justify;">If you need more information about our services or have any other queries fill the form and let us help you out. Our custom application and software development services cater a diverse range of industry verticals. </p>
                             
                         </div>
                     </div>					
@@ -105,7 +105,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="copy-right-text">
-                            <p>Copyright © 2018 <?php companyName(); ?> | All Rights Reserved.</p>
+                            <p>Copyright © 2020 <?php companyName(); ?> | All Rights Reserved.</p>
                         </div>
                     </div>
                      <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -159,8 +159,10 @@
     <script src="js/validator.min.js" type="text/javascript"></script>
     <!-- main js -->
     <script src="js/main.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1cZtqidvg0m-f8Hd3S6RHx1mY-omuLS4"></script>
-	<script>
+    <!-- Old Google Map Code -->
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1cZtqidvg0m-f8Hd3S6RHx1mY-omuLS4"></script> -->
+	
+    <!-- <script>
             function initialize() {
                 var mapOptions = {
                     zoom: 15,
@@ -182,7 +184,7 @@
             }
 
             google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
+	</script> -->
 	<script src="js/circleChart.min.js"></script>		
 		<script>
         $(".circleChart#1").circleChart({
@@ -236,5 +238,8 @@
             });
         }, 4000);
     </script>
+    
+    <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ec295ec356191cb"></script>
 </body>
 </html>

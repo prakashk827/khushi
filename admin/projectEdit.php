@@ -1,5 +1,7 @@
 <?php include_once("public/head.php");?>
-<?php include_once("categories/serviceCategory.php")?>
+
+<?php include_once("../db/db.php");?>
+
 <?php
 
 /*Getting ID of particular Service starts*/
@@ -7,7 +9,7 @@ if(isset($_GET['id']))
 {
   $id=$_GET['id'];
 
-$sel="SELECT * FROM `service` WHERE id=$id";
+$sel="SELECT * FROM `projects` WHERE id=$id";
     $exe=mysqli_query($conn,$sel);
     if(mysqli_num_rows($exe)==0)
     {
@@ -16,13 +18,14 @@ $sel="SELECT * FROM `service` WHERE id=$id";
     else
     {
       $data=mysqli_fetch_assoc($exe);
-       $date= $data['date'];
+      $date= $data['date'];
       $time= $data['time'];
       $title= $data['title'];
       $shortDescription= $data['shortDescription'];
-      $shorthPath= $data['longPath'];
-      $longDescription= $data['longDescription'];
-      $category=$data['category'];
+      $shorthPath= $data['shortPath'];
+      $projectLink= $data['projectLink'];
+     
+     
       
 
     }
@@ -35,7 +38,7 @@ else
 }
 /*Getting ID of particular Service ends*/
 ?>
-<title><?php serviceTitle();?></title>
+<title><?php ?></title>
 
 <body class="app sidebar-mini">
   <!-- Navbar-->
@@ -61,7 +64,7 @@ else
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa <?php  serviceIcon();?>"></i><?php echo ' Editing : '.$category;?> </h1>
+        <h1><i class="fa <?php  ?>"></i><?php echo ' Editing : ';?> </h1>
 
         <p>Add new service</p>
       </div>
@@ -79,10 +82,10 @@ else
         <div class="tile">
           <div class="row">
             <div class="col-lg-6">
-              <form service/insert.php id="userForm" method="post" action="service/update.php" enctype="multipart/form-data">
+              <form service/insert.php id="userForm" method="post" action="projects/update.php" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $id;?>">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Wants to hide this service to user?</label>  
+                  <label for="exampleInputEmail1">Wants to hide this project to user?</label>  
                   <select name="status" class="form-control" required="required">
                     <option value="1">Please Select</option>
                     <option value="0">Yes</option>
@@ -91,50 +94,6 @@ else
                     </select>
                 </div>
 
-                <div class="form-group">
-
-                  <label for="exampleInputEmail1">Service Category</label>  
-                  <div class="form-group">    
-
-                    <select disabled class="form-control" id= "category" name="category">
-                     <option>Not Allowed to Change</option>
-
-                     <?php
-                     
-                     $query="SELECT * FROM `category` WHERE status=0";
-                     $exe=mysqli_query($conn,$query);
-
-                     if(mysqli_num_rows($exe)>0)
-                     {
-                      
-                      while($data=mysqli_fetch_assoc($exe))
-                      {
-
-                          
-                      ?>
-
-                        <option><?php echo $data['category'];?></option>
-
-
-                      <?php
-                    }
-
-
-                    }
-                    else
-                    {
-                        header("Location:serviceLimtOver.php");
-                    }
-
-                    ?>
-
-                    
-                    
-                  </select>
-
-
-                </div>
-              </div>
 
               <div class="form-group">
                <label for="exampleInputEmail1">Upload Photo (840 X 360)</label>
@@ -152,6 +111,12 @@ else
               </div>
 
 
+            </div>
+
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Project Link</label>
+              <input class="form-control"  value="<?php  echo $projectLink; ?>" type="text" id="projectLink" name="projectLink" required />
             </div>
 
 
@@ -175,23 +140,29 @@ else
 
 
 
+
+
           </div>
         </div>
 
         <div class="form-group">
           <label class="control-label">Short Description</label>
           <textarea class="form-control" rows="6" id="shortDesc"
-          name="shortDesc" maxlength="200" placeholder="Maximum 200 Letters"><?php echo  $shortDescription;?>
+          name="shortDesc" maxlength="500" placeholder="Maximum 200 Letters"><?php echo  $shortDescription;?>
           </textarea>
 
 
 
         </div>
 
-        <h3 class="tile-title">Description</h3>
+        
+        <!-- 
+          <h3 class="tile-title">Description</h3>
+
         <div class="form-group">
-         <textarea id="editor1" rows="5" cols="30" name="editor1"><?php echo  $longDescription;?></textarea>
-       </div>
+
+         <textarea id="editor1" rows="5" cols="30" name="editor1"><?php //echo  $longDescription;?></textarea>
+       </div> -->
 
        <div class="form-group">
         <input class="btn btn-danger"  id="reset" type="reset" value="Clear" />
