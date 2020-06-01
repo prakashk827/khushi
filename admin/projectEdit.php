@@ -42,7 +42,7 @@ else
 
 <body class="app sidebar-mini">
   <!-- Navbar-->
-  <header class="app-header"><a class="app-header__logo" href="index.php">EP's</a>
+  <header class="app-header"><a class="app-header__logo" href="index.php"><?php shortTitle();?></a>
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
     <ul class="app-nav">
@@ -64,13 +64,13 @@ else
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa <?php  ?>"></i><?php echo ' Editing : ';?> </h1>
+        <h1><i class="fa <?php  ?>"></i><?php echo ' Editing : '?><?php echo $title;?> </h1>
 
-        <p>Add new service</p>
+        <p>Edit Project</p>
       </div>
       <ul class="app-breadcrumb breadcrumb">
         <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-        <li class="breadcrumb-item"><a href="#">Blank Page</a></li>
+        <li class="breadcrumb-item"><a href="#">Edit <?php projectLabel();?></a></li>
       </ul>
     </div>
 
@@ -127,11 +127,11 @@ else
           <div class="col-lg-4 offset-lg-1">
 
             <div class="form-group">
-              <label for="exampleInputEmail1">Title</label>
+              <label for="exampleInputEmail1"><?php projectLabel();?> Name</label>
               <input class="form-control"  value="<?php  echo $title; ?>" type="text" id="title" name="title" required />
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">SEO ranking image keyword</label>
+              <label for="exampleInputEmail1">Image  Alt keyword</label>
               <input class="form-control"  type="text"  name="alt">
             </div>
 

@@ -1,6 +1,6 @@
 a.meanmenu-reveal{display:none}
 .mean-container .mean-bar {
-  background: white;
+  background: rgba(0, 0, 0, 0.5);
   border-bottom: 2px solid #47c500;
   float: left;
   min-height: 42px;
@@ -21,7 +21,7 @@ a.meanmenu-reveal{display:none}
   border-top: 1px solid#ddd;
 }
 .mean-container .mean-nav ul li a {
-  background: #f8f8f8 none repeat scroll 0 0;
+  background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
   color: #666666;
   display: block;
   float: left;

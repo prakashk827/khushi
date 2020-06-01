@@ -72,7 +72,9 @@ function imageNameLabel()
 
 function projectLabel()
 {
-	echo "Project Name";
+	echo "Project";
 }
+
+
 
 ?>

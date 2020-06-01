@@ -64,7 +64,7 @@ if(isset($_POST['id']))
 
 	$title=$_POST["title"];
 	$alt=$_POST["alt"];
-	$shortDesc=$_POST["shortDesc"];
+	$shortDesc=mysqli_real_escape_string($conn,$_POST["shortDesc"]);
 	$projectLink=$_POST["projectLink"];
 
 	$date=date("d-m-Y");
@@ -95,7 +95,7 @@ if(isset($_POST['id']))
 
  	<center>
  		<br><br>
- 		<a title="Click Image to go Back" href="../projectList.php">
+ 		<a title="Click Image to go Back" href="../projectsList.php">
  			<img src="../../gif/success_celebration_800x600.gif">
  		</a> 
 

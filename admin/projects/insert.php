@@ -23,7 +23,7 @@ if(isset($_POST['save']))
 	$projectLink=$_POST["projectLink"];
 	$title=$_POST["title"];
 	$alt=$_POST["alt"];
-	$shortDesc=$_POST["shortDesc"];
+	$shortDesc=mysqli_real_escape_string($conn,$_POST["shortDesc"];
 	$editor1='';
 
 	$size=$_FILES["photo"]["size"];
