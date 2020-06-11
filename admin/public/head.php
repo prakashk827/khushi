@@ -6,6 +6,7 @@
     include_once("properties/titles.php");
     include_once("properties/companyInfo.php");
     include_once("../db/db.php");
+    
 ?>
 <!DOCTYPE html>
 <html>

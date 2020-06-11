@@ -1,6 +1,7 @@
 
 <?php 
-
+error_reporting(0);
+include_once('session.php');
 include_once("public/head.php");
 
 

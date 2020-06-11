@@ -1,5 +1,9 @@
-<?php 
+
+<?php
+error_reporting(0);
+include_once('session.php'); 
 include_once("public/head.php");
+ 
 //$query="SELECT * FROM `contact` WHERE status='lead' ORDER BY `id` DESC";
 $query="SELECT * FROM `contact`";
 $exe=mysqli_query($conn,$query);

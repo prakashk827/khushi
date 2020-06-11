@@ -1,4 +1,7 @@
 <?php include_once("properties/companyInfo.php");?>
+
+
+
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="images/logo.png" alt="User Image">
@@ -24,6 +27,9 @@
         <li><a class="app-menu__item" href="projects.php"><i class="app-menu__icon fa <?php projectsAddIcon();?>"></i><span class="app-menu__label"><?php  projectsTitle();?></span></a></li>
 
         <li><a class="app-menu__item" href="projectsList.php"><i class="app-menu__icon fa <?php projectsViewIcon();?>"></i><span class="app-menu__label"><?php  projectsTitle();?></span></a></li>
+
+        <li><a class="app-menu__item" href="logout.php"><i class="app-menu__icon <i fa fa-sign-out aria-hidden="true" /i> </i><span class="app-menu__label">LogOut</span></a></li>
+        
         
  </ul>
     </aside>

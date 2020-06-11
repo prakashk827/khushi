@@ -206,7 +206,7 @@ require('constant.php');?>
                {
 
                      $(':input[type="submit"]').prop('disabled', false);
-                    // $('#contactForm')[0].reset();
+                     $('#contactForm')[0].reset();
                      $("#warning").html(data);
                      
 
